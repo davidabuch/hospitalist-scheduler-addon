@@ -1,0 +1,6 @@
+{
+  "source_revision": "42a3cd1ad470561590832b549c0e37287af8d031",
+  "version": "0.10.4",
+  "image": "ghcr.io/davidabuch/hospitalist-scheduler",
+  "slug": "hospitalist_scheduler_release"
+}

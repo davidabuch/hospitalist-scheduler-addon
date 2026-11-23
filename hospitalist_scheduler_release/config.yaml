@@ -1,0 +1,47 @@
+name: Hospitalist Scheduler (Release)
+slug: hospitalist_scheduler_release
+description: Cloudflare Access-protected staging with optional signed private readiness;
+  scheduling disabled
+version: 0.10.4
+startup: application
+boot: manual
+init: true
+arch:
+- amd64
+- aarch64
+options:
+  cf_access_team_domain: ''
+  cf_access_aud: ''
+  cf_access_admin_email: ''
+  private_status_enabled: false
+  passkey_enrollment_enabled: false
+  private_upload_enabled: false
+  three_source_upload_enabled: false
+  three_source_synthetic_only: true
+  browser_draft_enabled: false
+  physician_admin_enabled: false
+  monthly_intake_enabled: false
+  monthly_scheduling_enabled: false
+schema:
+  cf_access_team_domain: str
+  cf_access_aud: str
+  cf_access_admin_email: email
+  private_status_enabled: bool
+  passkey_enrollment_enabled: bool
+  private_upload_enabled: bool
+  three_source_upload_enabled: bool
+  three_source_synthetic_only: bool
+  browser_draft_enabled: bool
+  physician_admin_enabled: bool
+  monthly_intake_enabled: bool
+  monthly_scheduling_enabled: bool
+ports: {}
+map: []
+host_network: false
+hassio_api: false
+homeassistant_api: false
+auth_api: false
+ingress: false
+watchdog: http://[HOST]:8765/healthz
+panel_icon: mdi:calendar-clock
+image: ghcr.io/davidabuch/hospitalist-scheduler-{arch}
