@@ -1,0 +1,26 @@
+# Supervisor replaces this profile name with the installed application ID.
+# Default deny for writes: immutable image files are readable, never writable.
+profile hospitalist_scheduler_staging flags=(attach_disconnected,mediate_deleted) {
+  /** mr,
+  /dev/init ix,
+  /usr/local/bin/python3{,.12} ix,
+
+  # Bootstrap owns only the private directories, then permanently drops UID/GID.
+  capability chown,
+  capability dac_override,
+  capability setgid,
+  capability setuid,
+
+  /data/{,**} rwkl,
+  /tmp/{,**} rwkl,
+  /dev/shm/{,**} rwkl,
+  /dev/null rw,
+
+  # Access JWKS HTTPS, DNS, the HTTP listener and private worker IPC.
+  network inet stream,
+  network inet6 stream,
+  network inet dgram,
+  network inet6 dgram,
+  unix,
+  signal,
+}
