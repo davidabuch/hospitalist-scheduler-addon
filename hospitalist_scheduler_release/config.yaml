@@ -2,7 +2,7 @@ name: Hospitalist Scheduler (Release)
 slug: hospitalist_scheduler_release
 description: Cloudflare Access-protected staging with optional signed private readiness;
   scheduling disabled
-version: 0.10.4
+version: 0.10.5
 startup: application
 boot: manual
 init: true
